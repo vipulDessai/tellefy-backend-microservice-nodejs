@@ -2,5 +2,6 @@
 
 ## TODO
 - [ ] DB Connections
+- [ ] Heroku CI
 - [ ] DB query caching
 - [ ] node js advanced concepts - proxy
