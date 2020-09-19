@@ -5,7 +5,7 @@ router.get("/users", (req, res) => {
     res.send({"foo": "dummy users get"});
 });
 
-router.post("/users", (req, res) => {
+router.post("/users/authenticate", (req, res) => {
     res.send({"foo": "dummy users post"});
 });
 
