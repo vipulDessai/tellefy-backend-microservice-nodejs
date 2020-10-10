@@ -1,15 +1,20 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
     res.send({"foo": "dummy users get"});
 });
 
-router.post("/users/authenticate", (req, res) => {
-    res.send({"foo": "dummy users post"});
+router.post("/authenticate", (req, res) => {
+    res.send({
+        userName: "foo_bar",
+        firstName: "Foo",
+        lastName: "bar",
+        lastLogin: new Date(),
+    });
 });
 
-router.delete("/users/:index", (req, res) => {
+router.delete("/:index", (req, res) => {
     res.send({"foo": "dummy users delete"});
 });
 
