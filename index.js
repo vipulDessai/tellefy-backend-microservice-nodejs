@@ -8,7 +8,7 @@ const frontEndEntryFileLocation = path.join(__dirname, "../", "blog-frontend-ang
 const frontEndEDistFolderLocation = path.join(__dirname, "../", "blog-frontend-angular", "dist", "blog-frontend-angular");
 
 // api file for interacting with MongoDB
-const api = require("./server/routes/api");
+const account = require("./server/routes/account");
 
 // parsers
 app.use(bodyparser.json());
@@ -17,8 +17,8 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // angular DIST output folder
 app.use(express.static(frontEndEDistFolderLocation));
 
-// api location
-app.use("/account", api);
+// account location
+app.use("/account", account);
 
 app.get('*', (req, res) => {
     res.sendFile(frontEndEntryFileLocation);

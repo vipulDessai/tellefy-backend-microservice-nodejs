@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 router.post("/authenticate", (req, res) => {
     res.send({
         userName: "foo_bar",
-        firstName: "Foo",
+        firstName: "foo",
         lastName: "bar",
         lastLogin: new Date(),
     });
