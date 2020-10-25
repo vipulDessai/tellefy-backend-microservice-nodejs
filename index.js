@@ -4,8 +4,8 @@ const path = require("path");
 const http = require("http");
 const app = express();
 
-const frontEndEntryFileLocation = path.join(__dirname, "../", "blog-frontend-angular", "dist", "blog-frontend-angular", "index.html");
-const frontEndEDistFolderLocation = path.join(__dirname, "../", "blog-frontend-angular", "dist", "blog-frontend-angular");
+const frontEndEntryFileLocation = path.join(__dirname, "../", "tellefy-frontend-angular", "dist", "tellefy-frontend-angular", "index.html");
+const frontEndEDistFolderLocation = path.join(__dirname, "../", "tellefy-frontend-angular", "dist", "tellefy-frontend-angular");
 
 // api file for interacting with MongoDB
 const account = require("./server/routes/account");
