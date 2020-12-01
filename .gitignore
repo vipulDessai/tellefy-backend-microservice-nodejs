@@ -7,3 +7,6 @@ package-lock.json
 # distributable
 /build
 /dist
+
+# env files
+.env
