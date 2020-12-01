@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyparser = require('body-parser');
-const path = require('path');
 const http = require('http');
 const app = express();
 
@@ -31,3 +30,5 @@ app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port, () => console.log(`Running on localhost:${port}`));
+
+module.exports = server;
