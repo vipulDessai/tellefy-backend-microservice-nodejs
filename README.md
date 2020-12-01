@@ -1,4 +1,4 @@
-# Blog - Back End - Node JS
+# Tellefy - Back End - Node JS
 
 ## TODO
 - [ ] DB Connections
