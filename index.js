@@ -15,9 +15,19 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 // set headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', `${process.env.FRONTEND_URL}`);
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Credentials', true);
+    // split the string on comma and trim the edges
+    // ex
+    // FRONTEND_URL=https://www.domain1.com, https://domain2.com
+    // outputs
+    // ["https://www.domain1.com", "https://www.domain1.com"]
+    const allowedOrigins = process.env.FRONTEND_URL.split(',').map(url => url.trim());
+
+    if(allowedOrigins.indexOf(req.headers.origin) > -1) {
+        res.header('Access-Control-Allow-Origin', `${req.headers.origin}`);
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.header('Access-Control-Allow-Credentials', true);
+    }
+    
     next();
 });
 
