@@ -1,24 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send({"foo": "dummy users get"});
+const services = require("../_services")
+
+router.get("/", async (req, res) => {
+    const accountData = await services.account.getRequest({ userName: req.query.userName })
+    res.send(accountData);
 });
-router.post("/authenticate", (req, res) => {
-    res.send({
-        userName: "foo_bar",
-        firstName: "foo",
-        lastName: "bar",
-        lastLogin: new Date(),
-    });
+router.post("/authenticate", async (req, res) => {
+    const accountData = await services.account.postRequest(req.body);
+    res.send(accountData);
 });
-router.post("/register", (req, res) => {
-    res.send({
-        userName: "foo_bar",
-        firstName: "foo",
-        lastName: "bar",
-        lastLogin: new Date(),
-    });
+router.post("/register", async (req, res) => {
+    const accountData = await services.account.postRequest(req.body);
+    res.send(accountData);
 });
 router.delete("/:index", (req, res) => {
     res.send({"foo": "dummy users delete"});
