@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_DB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('DB is connected');
+let dbError = null;
+db.on('error', (error) => {
+    dbError = error;
 });
 
 const userAccountSchema = new mongoose.Schema({
@@ -16,6 +16,9 @@ const userAccountSchema = new mongoose.Schema({
 const Account = mongoose.model('Account', userAccountSchema);
 
 const dbService = {
+    getDbStatus: function () {
+        return dbError;
+    },
     postRequest: async function (body) {
         const accountEntry = new Account(body);
         const dbSaveResult = await accountEntry.save();
