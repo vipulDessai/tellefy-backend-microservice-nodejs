@@ -12,5 +12,6 @@ install:
   - npm install
 
 script:
+  - npm run lint
   - node index.js &
   - npm run test
