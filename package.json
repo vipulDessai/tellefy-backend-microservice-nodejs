@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "mocha",
     "dev": "node --inspect index.js",
     "start": "node index.js"
   },
@@ -14,10 +14,12 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.4",
-    "supertest": "^6.0.1"
+    "mongoose": "^5.11.4"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "axios": "^0.21.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
   }
 }

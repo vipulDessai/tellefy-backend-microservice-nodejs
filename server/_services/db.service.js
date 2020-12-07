@@ -15,7 +15,7 @@ const userAccountSchema = new mongoose.Schema({
 });
 const Account = mongoose.model('Account', userAccountSchema);
 
-const accountService = {
+const dbService = {
     postRequest: async function (body) {
         const accountEntry = new Account(body);
         const dbSaveResult = await accountEntry.save();
@@ -47,4 +47,4 @@ const accountService = {
     }
 };
 
-module.exports = accountService;
+module.exports = dbService;

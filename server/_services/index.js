@@ -1,4 +1,4 @@
-const account = require("./account.service");
+const db = require("./db.service");
 module.exports = {
-    account,
+    db,
 }

@@ -4,15 +4,15 @@ const router = express.Router();
 const services = require("../_services")
 
 router.get("/", async (req, res) => {
-    const accountData = await services.account.getRequest({ userName: req.query.userName })
+    const accountData = await services.db.getRequest({ userName: req.query.userName })
     res.send(accountData);
 });
 router.post("/authenticate", async (req, res) => {
-    const accountData = await services.account.postRequest(req.body);
+    const accountData = await services.db.postRequest(req.body);
     res.send(accountData);
 });
 router.post("/register", async (req, res) => {
-    const accountData = await services.account.postRequest(req.body);
+    const accountData = await services.db.postRequest(req.body);
     res.send(accountData);
 });
 router.delete("/:index", (req, res) => {
