@@ -6,14 +6,14 @@ const bodyparser = require('body-parser');
 const http = require('http');
 const app = express();
 
-// api file for interacting with MongoDB
-const account = require('./server/routes/account');
+// initialize routes
+const routes = require('./server/routes');
 
-// parsers
+// parsers for POST, PUT
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
-// set headers
+// set headers for CORS
 app.use((req, res, next) => {
     // split the string on comma and trim the edges
     // ex
@@ -31,11 +31,12 @@ app.use((req, res, next) => {
     next();
 });
 
-// account location
-app.use('/account', account);
+// setup the route prefixes
+app.use('/', routes.rootRouter);
+app.use('/account', routes.account);
 
 // set port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || process.env.TEST_LOCAL_SERVER_PORT || 3000;
 app.set('port', port);
 
 const server = http.createServer(app);

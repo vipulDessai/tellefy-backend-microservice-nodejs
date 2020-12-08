@@ -12,4 +12,5 @@ install:
   - npm install
 
 script:
+  - node index.js &
   - npm run test
