@@ -32,7 +32,7 @@ const dbService = {
             response = dbSaveResult;
         }
 
-        return {err, response}
+        return {err, response};
     },
     getRequest: async function (params) {
         const dbSaveResult = await Account.find(params);
@@ -46,7 +46,7 @@ const dbService = {
             response = dbSaveResult;
         }
 
-        return {err, response}
+        return {err, response};
     }
 };
 
