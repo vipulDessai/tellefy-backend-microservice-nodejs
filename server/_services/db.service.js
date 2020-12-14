@@ -24,12 +24,12 @@ const dbService = {
         const dbSaveResult = await accountEntry.save();
 
         let err, response;
-        if(dbSaveResult.errors) {
-            console.log(dbSaveResult.errors);
-            err = dbSaveResult.errors;
+        if(dbSaveResult._doc && !dbSaveResult.errors) {
+            response = dbSaveResult;
         }
         else {
-            response = dbSaveResult;
+            err = dbSaveResult.errors;
+            err.status = 500;
         }
 
         return {err, response};
@@ -38,12 +38,22 @@ const dbService = {
         const dbSaveResult = await Account.find(params);
 
         let err, response;
-        if(dbSaveResult.errors) {
-            console.log(dbSaveResult.errors);
-            err = dbSaveResult.errors;
+        if(!dbSaveResult.errors) {
+            // the user exist case
+            if(dbSaveResult && dbSaveResult.length > 0 && dbSaveResult[0]._doc) {
+                response = dbSaveResult[0];
+            }
+            // user does NOT exist case
+            else {
+                err = {
+                    message: "User name / Password is incorrect",
+                    status: 401,
+                };
+            }
         }
         else {
-            response = dbSaveResult;
+            err = dbSaveResult.errors;
+            err.status = 500;
         }
 
         return {err, response};
