@@ -46,7 +46,7 @@ const dbService = {
             // user does NOT exist case
             else {
                 err = {
-                    message: "User name / Password is incorrect",
+                    message: 'User name / Password is incorrect',
                     status: 401,
                 };
             }

@@ -8,7 +8,8 @@
     "dev": "node --inspect index.js",
     "start": "node index.js",
     "lint-w": "esw -w",
-    "lint": "esw"
+    "lint": "esw",
+    "fix": "eslint --fix --ext .js server/"
   },
   "keywords": [],
   "author": "",
