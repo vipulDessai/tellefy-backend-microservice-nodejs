@@ -26,3 +26,5 @@ jobs:
         TEST_LOCAL_SERVER: true
     - run: npm run lint
     - run: npm test
+      env:
+        TEST_LOCAL_SERVER_PORT: 3000
