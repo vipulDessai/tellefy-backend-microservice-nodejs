@@ -23,6 +23,6 @@ jobs:
     - run: npm test
       env:
         FRONTEND_URL: https://stage-frontend-reactjs.herokuapp.com, https://stage-frontend-angular.herokuapp.com
-        MONGO_DB_URI: mongodb+srv://root:root@cluster0.o9bjq.mongodb.net/tellefy?retryWrites=true&w=majority
+        MONGO_DB_URI: mongodb\+srv://root:root\@cluster0.o9bjq.mongodb.net/tellefy\?retryWrites\=true\&w\=majority
         TEST_LOCAL_SERVER_PORT: 3000
         TEST_LOCAL_SERVER: true
