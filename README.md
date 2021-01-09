@@ -1,4 +1,4 @@
-# Tellefy - Back End - Node JS [![Build Status](https://travis-ci.com/vipulDessai/tellefy-backend-microservice-nodejs.svg?branch=working)](https://travis-ci.com/vipulDessai/tellefy-backend-microservice-nodejs)
+# Tellefy - Back End - Node JS ![Check Build](https://github.com/vipulDessai/tellefy-backend-microservice-nodejs/workflows/Check%20Build/badge.svg)
 
 ## TODO
 - [ ] DB Connections
